@@ -1,0 +1,91 @@
+# Publish the weekly puzzle ANSWER post to Instagram (@deanzachessclub).
+#
+# Schedule: every Monday and Thursday at 16:00 America/Los_Angeles.
+# 16:00 PDT = 23:00 UTC (Mon/Thu), 16:00 PST = 00:00 UTC (Tue/Fri), so the
+# cron fires at both candidate UTC hours and scripts/publish.py's local-time
+# guard picks the one that is actually 16:00 local (handles the DST change).
+#
+# Same flow as publish-question.yml: prepare -> commit + push the rendered
+# asset -> post via the Graph API -> commit + push the queue update. If IG
+# secrets are missing, `post` dry-runs by design and the queue is untouched.
+
+name: Publish weekly puzzle answer
+
+on:
+  schedule:
+    - cron: "0 23 * * 1,4"
+    - cron: "0 0 * * 2,5"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (render + show manifest, post nothing)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: puzzle-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-core libcairo2
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Prepare answer post
+        id: prepare
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            python scripts/publish.py prepare --kind answer --force
+          else
+            python scripts/publish.py prepare --kind answer
+          fi
+
+      - name: Commit rendered asset
+        if: steps.prepare.outputs.run == 'true'
+        run: |
+          git config user.name "chess-club-bot"
+          git config user.email "chess-club-bot@users.noreply.github.com"
+          git add assets/
+          if ! git diff --cached --quiet; then
+            NUM=$(python -c "import json; print(f\"{json.load(open('.publish/manifest.json'))['number']:03d}\")")
+            git commit -m "Render weekly puzzle #${NUM} answer image"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Post to Instagram
+        if: steps.prepare.outputs.run == 'true'
+        run: python scripts/publish.py post --kind answer
+
+      - name: Commit queue update
+        if: steps.prepare.outputs.run == 'true'
+        run: |
+          git config user.name "chess-club-bot"
+          git config user.email "chess-club-bot@users.noreply.github.com"
+          git add data/queue.json
+          if ! git diff --cached --quiet; then
+            NUM=$(python -c "import json; print(f\"{json.load(open('.publish/manifest.json'))['number']:03d}\")")
+            git commit -m "Mark puzzle #${NUM} as answered"
+            git pull --rebase
+            git push
+          fi
