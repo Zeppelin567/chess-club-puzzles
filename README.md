@@ -12,6 +12,18 @@ Instagram ([@deanzachessclub](https://www.instagram.com/deanzachessclub)).
 Publishing goes through the **Instagram Graph API** from GitHub Actions. No
 browser, no manual login, no session cookies to babysit.
 
+## Play online
+
+Play the current puzzle in your browser — no account, no download:
+
+**https://zeppelin567.github.io/chess/#puzzles**
+
+The puzzle mode lives in the [Chess repo](https://github.com/Zeppelin567/chess)
+(two-player game + Puzzles tab) and reads `data/queue.json` and
+`data/puzzles.csv` from this repo at runtime, so the puzzle on the site
+always matches the latest Instagram post. No backend: attempts and solved
+state are stored only in the player's own browser.
+
 ## Repo layout
 
 ```
