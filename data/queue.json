@@ -1,0 +1,155 @@
+[
+  {
+    "number": 1,
+    "posted_at": "2026-10-01",
+    "puzzle_id": "00Aq4",
+    "rating": 1528,
+    "side": "black",
+    "status": "answered",
+    "theme": "mateIn3"
+  },
+  {
+    "number": 2,
+    "puzzle_id": "01YV3",
+    "rating": 1595,
+    "side": "white",
+    "status": "answered",
+    "theme": "mateIn3",
+    "posted_at": "2026-10-07",
+    "permalink": "https://www.instagram.com/p/DeMyXLGoMfn/",
+    "answer_permalink": "https://www.instagram.com/p/DeNgBHdoF01/"
+  },
+  {
+    "number": 3,
+    "puzzle_id": "0CG8J",
+    "theme": "mateIn4",
+    "rating": 1641,
+    "side": "black",
+    "status": "answered",
+    "posted_at": "2026-10-08",
+    "permalink": "https://www.instagram.com/p/DePUy67m3c2/",
+    "answer_permalink": "https://www.instagram.com/p/DeQEqOJmdmz/"
+  },
+  {
+    "number": 4,
+    "puzzle_id": "01Gjl",
+    "theme": "mateIn3",
+    "rating": 1698,
+    "side": "white",
+    "status": "answered",
+    "posted_at": "2026-10-12",
+    "permalink": "https://www.instagram.com/p/DeZoItboKjv/",
+    "answer_permalink": "https://www.instagram.com/p/DeaX12XIOOs/"
+  },
+  {
+    "number": 5,
+    "puzzle_id": "007en",
+    "theme": "mateIn3",
+    "rating": 1733,
+    "side": "black",
+    "status": "answered",
+    "posted_at": "2026-10-15",
+    "permalink": "https://www.instagram.com/p/DehaD-3oJtB/",
+    "answer_permalink": "https://www.instagram.com/p/DeiWXRmoCS-/"
+  },
+  {
+    "number": 6,
+    "puzzle_id": "03CZE",
+    "theme": "mateIn4",
+    "rating": 1712,
+    "side": "white",
+    "status": "answered",
+    "posted_at": "2026-10-19",
+    "permalink": "https://www.instagram.com/p/DerpwPUGmG8/",
+    "answer_permalink": "https://www.instagram.com/p/DesZOOsoMYv/"
+  },
+  {
+    "number": 7,
+    "puzzle_id": "01Sr1",
+    "theme": "mateIn3",
+    "rating": 1751,
+    "side": "black",
+    "status": "answered",
+    "posted_at": "2026-10-22",
+    "permalink": "https://www.instagram.com/p/DezXme2IMXj/",
+    "answer_permalink": "https://www.instagram.com/p/De0HeSoo7Af/"
+  },
+  {
+    "number": 8,
+    "puzzle_id": "016rF",
+    "theme": "mateIn3",
+    "rating": 1813,
+    "side": "white",
+    "status": "answered",
+    "posted_at": "2026-10-26",
+    "permalink": "https://www.instagram.com/p/De9yneUoMQO/",
+    "answer_permalink": "https://www.instagram.com/p/De-rE20oC-K/"
+  },
+  {
+    "number": 9,
+    "puzzle_id": "00XGg",
+    "theme": "mateIn4",
+    "rating": 1817,
+    "side": "black",
+    "status": "posted",
+    "posted_at": "2026-10-29",
+    "permalink": "https://www.instagram.com/p/DfFm926oqsT/"
+  },
+  {
+    "number": 10,
+    "puzzle_id": "00rw0",
+    "theme": "mateIn3",
+    "rating": 1835,
+    "side": "white",
+    "status": "answered",
+    "posted_at": "2026-11-02",
+    "permalink": "https://www.instagram.com/p/DfPyvfQowBb/",
+    "answer_permalink": "https://www.instagram.com/p/DfQocwXoYdJ/"
+  },
+  {
+    "number": 11,
+    "puzzle_id": "04g7p",
+    "theme": "mateIn4",
+    "rating": 1893,
+    "side": "black",
+    "status": "answered",
+    "posted_at": "2026-11-05",
+    "permalink": "https://www.instagram.com/p/DfXhGKbIzGw/",
+    "answer_permalink": "https://www.instagram.com/p/DfYRZWyI_gG/"
+  },
+  {
+    "number": 12,
+    "puzzle_id": "09tvy",
+    "theme": "mateIn4",
+    "rating": 1851,
+    "side": "white",
+    "status": "answered",
+    "posted_at": "2026-11-09",
+    "permalink": "https://www.instagram.com/p/Dfh0aQUoZqw/",
+    "answer_permalink": "https://www.instagram.com/p/Dfikq4mIUZG/"
+  },
+  {
+    "number": 13,
+    "puzzle_id": "01PIs",
+    "theme": "mateIn3",
+    "rating": 1909,
+    "side": "black",
+    "status": "queued"
+  },
+  {
+    "number": 14,
+    "puzzle_id": "0BcgM",
+    "theme": "mateIn4",
+    "rating": 1881,
+    "side": "white",
+    "status": "queued"
+  },
+  {
+    "number": 15,
+    "puzzle_id": "00rHa",
+    "theme": "mateIn3",
+    "rating": 1928,
+    "side": "black",
+    "status": "queued"
+  }
+]
